@@ -22,20 +22,20 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Use management
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
 
-    path('login/', views.LoginView.as_view(), name='login'),
-    path('logout/', views.LogoutView.as_view(), name='logout'),
+    # path('login/', views.LoginView.as_view(), name='login'),
+    # path('logout/', views.LogoutView.as_view(), name='logout'),
 
-    path('password_change/', views.PasswordChangeView.as_view(), name='password_change'),
-    path('password_change/done/', views.PasswordChangeDoneView.as_view(), name='password_change_done'),
+    # path('password_change/', views.PasswordChangeView.as_view(), name='password_change'),
+    # path('password_change/done/', views.PasswordChangeDoneView.as_view(), name='password_change_done'),
 
-    path('password_reset/', views.PasswordResetView.as_view(), name='password_reset'),
-    path('password_reset/done/', views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    path('reset/done/', views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    # path('password_reset/', views.PasswordResetView.as_view(), name='password_reset'),
+    # path('password_reset/done/', views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    # path('reset/<uidb64>/<token>/', views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    # path('reset/done/', views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 
     # Local apps
-    path('accounts/', include('users.urls')),
+    # path('accounts/', include('users.urls')),
     path('', include('pages.urls')),
 ]
