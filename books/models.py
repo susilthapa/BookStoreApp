@@ -2,7 +2,6 @@ from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 import uuid
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 from PIL import Image
 
@@ -15,22 +14,27 @@ class Books(models.Model):
 
   class Meta:
     verbose_name_plural = "Books"
+    permissions = [
+      ('special_status', 'Can read all books')
+    ]
 
   def __str__(self):
     return self.title
 
+  # def save(self, *args, **kwargs):
+  #   super(Books, self).save(*args, **kwargs)
+    
+  #   img = Image.open(self.cover.path)  # opens the image of current instance
+    
+  #   if img.height > 400 and img.width > 400:
+  #     output_size = (400, 400)
+  #     img.thumbnail(output_size)
+  #     img.save(self.cover.path)
+
   def get_absolute_url(self):
       return reverse("book_detail", args=[str(self.id)])
   
-  def save(self, *args, **kwargs):
-    super(Books, self).save(*args, **kwargs)
-    
-    img = Image.open(self.cover.path)  # opens the image of current instance
-    
-    if img.height > 400 and img.width > 400:
-      output_size = (400, 400)
-      img.thumbnail(output_size)
-      img.save(self.cover.path)
+  
 
 class Review(models.Model):
   book = models.ForeignKey(Books, on_delete=models.CASCADE, related_name='reviews')
