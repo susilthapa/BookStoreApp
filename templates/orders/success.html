@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+
+{% block title %}Payment Success{% endblock title %}
+
+{% block content %}
+  <h1>Success</h1>
+  <ul>
+    <li>Order Id: {{request.GET.oid}}</li>
+    <li>Amount: {{request.GET.amt}}</li>
+    <li>reference Id: {{request.GET.refId}}</li>
+  </ul>
+{% endblock content %}

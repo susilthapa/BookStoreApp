@@ -2,9 +2,28 @@
 {% block title %}Books{% endblock title %}
 
 {% block content %}
+  {% if not perms.books.special_status %} # currently logged-in user's permission is stored in {{perms}}
+    <div class="form-div">                # books is app_label
+      <form action="https://uat.esewa.com.np/epay/main" method="POST">
+        <input value="100" name="tAmt" type="hidden">
+        <input value="90" name="amt" type="hidden">
+        <input value="5" name="txAmt" type="hidden">
+        <input value="2" name="psc" type="hidden">
+        <input value="3" name="pdc" type="hidden">
+        <input value="epay_payment" name="scd" type="hidden">
+        <input value="mybook31q231qq23" name="pid" type="hidden">
+        <input value="http://127.0.0.1:8000/orders/esewa_payment_success/" type="hidden" name="su">
+        <input value="http://127.0.0.1:8000/orders/esewa_payment_failure/" type="hidden" name="fu">
+        <input value="Pay with e-Sewa $100" type="submit">
+      </form>
+    </div>
+  {% endif %}
+  <h1>You have access to all the books </h1>
   {% for book in books %}
     <div>
+      <img src="{{ book.cover.url }}" alt="">
       <h2><a href="{{book.get_absolute_url}}">{{book.title}}</a></h2>
     </div>
   {% endfor %}
+
 {% endblock content %}
