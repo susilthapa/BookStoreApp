@@ -17,8 +17,29 @@
         <input value="Pay with e-Sewa $100" type="submit">
       </form>
     </div>
+  {% else %}
+    <h1>You have access to all the books </h1>
   {% endif %}
-  <h1>You have access to all the books </h1>
+
+  <div class="form-div row">
+    <form action="{% url 'search' %}" method = "get" class="search-form col-4">
+      {% comment %} {% csrf_token %} {% endcomment %}
+      <div>
+        <input type="text" class="form-control" id="search_text" name="search_text" autocomplete="off" >
+      </div>
+      <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+  </div>
+
+  <div class="result-div col-8">
+    <ul id="search_results" class="list-group">
+    
+    </ul>
+  </div>
+  
+
+ 
+  
   {% for book in books %}
     <div>
       <img src="{{ book.cover.url }}" alt="">

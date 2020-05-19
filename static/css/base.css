@@ -7,6 +7,21 @@ h1{
   width: auto;
 }
 
+li{
+  list-style: none;
+}
+
+
 .form-div{
   margin: 7px;
+}
+
+.search-form{
+  display: flex;
+  /* border: 1px solid red; */
+
+} 
+
+.list-group li {
+  cursor: pointer;
 }
