@@ -13,6 +13,7 @@ django-allauth = "*"
 python-decouple = "*"
 pillow = "*"
 requests = "*"
+django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.8"

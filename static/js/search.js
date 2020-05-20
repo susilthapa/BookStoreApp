@@ -1,5 +1,5 @@
 $(function(){
-  $('#search_text').keyup(function(){
+  $('#search_text').keyup(delay(function(){
       var q =  $('#search_text').val()
       // console.log("vlaue = "+q)
       if ((q == '') || (q == null))
@@ -20,7 +20,7 @@ $(function(){
           success: searchSuccess,
       });
       }
-  });
+  }, 600));
 
 });
 
@@ -43,10 +43,19 @@ function searchSuccess(data)
   }
   $('#search_results').html(list)
 
-  $(".link").click(function(){
-    text = $(this).text()
-    // alert(text);
-    $("#search_text").val(text);
+  // $(".link").click(function(){
+  //   text = $(this).text()
+  //   // alert(text);
+  //   $("#search_text").val(text);
 
-  });
+  // });
+}
+
+function delay(fn, ms) {
+  console.log('sleeping...')
+  let timer = 0
+  return function(...args) {
+    clearTimeout(timer)
+    timer = setTimeout(fn.bind(this, ...args), ms || 0)
+  }
 }
