@@ -115,11 +115,11 @@ WSGI_APPLICATION = 'bookstore_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),                      
-        'USER': config('D_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('EMAIL_PORT', cast=int)
+        'NAME': os.environ.get('DB_NAME'),                      
+        'USER': os.environ.get('D_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('EMAIL_PORT', cast=int)
     }
 }
 
