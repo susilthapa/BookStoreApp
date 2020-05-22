@@ -119,7 +119,7 @@ DATABASES = {
         'USER': os.environ.get('D_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('EMAIL_PORT', cast=int)
+        'PORT': int(os.environ.get('EMAIL_PORT'))
     }
 }
 
