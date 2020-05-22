@@ -25,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.evniron.get('SECRET_KEY')
 
 #should be default to production
-ENVIRONMENT = config('ENVIRONMENT', default= 'development')
+ENVIRONMENT = config('ENVIRONMENT', default= 'production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',cast=bool)
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
