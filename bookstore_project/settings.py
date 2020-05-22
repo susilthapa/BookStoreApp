@@ -22,13 +22,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 #should be default to production
-ENVIRONMENT = config('ENVIRONMENT', default= 'production')
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default= 'production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -115,11 +115,11 @@ WSGI_APPLICATION = 'bookstore_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),                      
-        'USER': config('D_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('EMAIL_PORT', cast=int)
+        'NAME': os.environ.get('DB_NAME'),                      
+        'USER': os.environ.get('D_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('EMAIL_PORT')
     }
 }
 
