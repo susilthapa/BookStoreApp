@@ -1,4 +1,4 @@
-from django.test import Client, TestCase
+from django.test import Client, TestCase # The test client is a Python class that acts as a dummy Web browser,
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from .models import Books, Review
