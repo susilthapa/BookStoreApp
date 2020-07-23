@@ -1,11 +1,7 @@
 h1{
-  color: red;
+  color: #007bff;
 }
 
-.joker{
-  height: 250px;
-  width: auto;
-}
 
 li{
   list-style: none;

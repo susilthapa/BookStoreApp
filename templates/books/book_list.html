@@ -2,6 +2,7 @@
 {% block title %}Books{% endblock title %}
 
 {% block content %}
+<div class="p-5">
   {% if not perms.books.special_status %} # currently logged-in user's permission is stored in {{perms}}
     <div class="form-div">                # books is app_label
       <form action="https://uat.esewa.com.np/epay/main" method="POST">
@@ -46,5 +47,6 @@
       <h2><a href="{{book.get_absolute_url}}">{{book.title}}</a></h2>
     </div>
   {% endfor %}
+</div>
 
 {% endblock content %}
