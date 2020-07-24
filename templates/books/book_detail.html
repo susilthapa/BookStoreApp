@@ -13,14 +13,32 @@
       <h2><a href="">{{book.title}}</a></h2>
       <p>Author: {{book.author}}</p>
       <p>Price: ${{book.price}}</p>
+    
+     {% if book.reviews.all%}  
       <div>
         <h3>Reviews</h3>
         <ul>
           {% for review in book.reviews.all %}
-            <li>{{ review.review }} ({{ review.author }})</li>
+            <i><li>{{ review.review }} ({{ review.author }})</li></i>
           {% endfor %}
         </ul>
       </div>
+      {% endif %}
     </div>
+    <div class="form-div">  
+      <form action="https://uat.esewa.com.np/epay/main" method="POST">
+        <input value="100" name="tAmt" type="hidden">
+        <input value="90" name="amt" type="hidden">
+        <input value="5" name="txAmt" type="hidden">
+        <input value="2" name="psc" type="hidden">
+        <input value="3" name="pdc" type="hidden">
+        <input value="epay_payment" name="scd" type="hidden">
+        <input value="mybook31q231qq23" name="pid" type="hidden">
+        <input value="http://127.0.0.1:8000/orders/esewa_payment_success/" type="hidden" name="su">
+        <input value="http://127.0.0.1:8000/orders/esewa_payment_failure/" type="hidden" name="fu">
+        <input id="e-sewa" value="Pay ${{book.price}} with e-Sewa" type="submit">
+      </form>
+  </div>
   </div >
+
 {% endblock content %}

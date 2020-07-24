@@ -52,7 +52,6 @@ function searchSuccess(data)
 }
 
 function delay(fn, ms) {
-  console.log('sleeping...')
   let timer = 0
   return function(...args) {
     clearTimeout(timer)

@@ -64,6 +64,17 @@ li{
 	max-width: 100%;
 }
 
+#e-sewa{
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	background: #4cc417;
+	color: #fff;
+}
+#e-sewa:hover{
+	opacity: .9;
+}
+
 @media screen and (max-width: 700px){
 	.card-container{
 		justify-content: center;
