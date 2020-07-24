@@ -2,11 +2,13 @@
 {% block title %}{{object.title}}{% endblock title %}
 
 {% block content %}
-  <div class="p-5 w-75 mx-auto">
+  <div class="p-5 w-75 mx-auto book-detail">
 
     <div class="book-detail">
       {% if book.cover %}
+      <div class="detail-image">
         <img class="bookcover" src="{{ book.cover.url }}" alt="{{ book.title }}"></img>
+      </div>
       {% endif %}
       <h2><a href="">{{book.title}}</a></h2>
       <p>Author: {{book.author}}</p>

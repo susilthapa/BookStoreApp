@@ -19,7 +19,7 @@
       </form>
     </div>
   {% else %}
-    <h1>You have access to all the books </h1>
+    <h1 style="text-align:center;">You have access to all the books </h1>
   {% endif %}
 
   <div class="form-div row">
@@ -40,13 +40,29 @@
   
 
  
-  
-  {% for book in books %}
-    <div>
-      <img src="{{ book.cover.url }}" alt="">
-      <h2><a href="{{book.get_absolute_url}}">{{book.title}}</a></h2>
-    </div>
-  {% endfor %}
-</div>
+  <div class="card-container">
+    {% for book in books %}
+    <a href="{{ book.get_absolute_url }}">
+    <!-- Card -->
+      <div class="card">
+
+        <!-- Card image -->
+        <div class="card-img">
+         <img class="card-img-top" src="{{ book.cover.url }}" alt="Card image cap">
+        </div>
+        <!-- Card content -->
+        <div class="card-body">
+
+          <!-- Title -->
+          <h4 class="card-title">{{book.title}}</h4>
+          <!-- Text -->
+          <p class="card-text">Price: {{book.price}}</p>
+
+        </div>
+
+      </div></a>
+  <!-- Card -->
+    {% endfor %}
+  </div>
 
 {% endblock content %}

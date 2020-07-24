@@ -21,15 +21,15 @@ class Books(models.Model):
   def __str__(self):
     return self.title
 
-  def save(self, *args, **kwargs):
-    super(Books, self).save(*args, **kwargs)
+  # def save(self, *args, **kwargs):
+  #   super(Books, self).save(*args, **kwargs)
     
-    img = Image.open(self.cover.path)  # opens the image of current instance
+  #   img = Image.open(self.cover.path)  # opens the image of current instance
     
-    if img.height > 250 and img.width > 100:
-      output_size = (250, 100)
-      img.thumbnail(output_size)
-      img.save(self.cover.path)
+  #   if img.height > 250 and img.width > 100:
+  #     output_size = (250, 100)
+  #     img.thumbnail(output_size)
+  #     img.save(self.cover.path)
 
   def get_absolute_url(self):
       return reverse("book_detail", args=[str(self.id)])
