@@ -27,11 +27,11 @@
     </div>
     <div class="form-div">  
       <form action="https://uat.esewa.com.np/epay/main" method="POST">
-        <input value="100" name="tAmt" type="hidden">
-        <input value="90" name="amt" type="hidden">
-        <input value="5" name="txAmt" type="hidden">
-        <input value="2" name="psc" type="hidden">
-        <input value="3" name="pdc" type="hidden">
+        <input value="{{book.price}}" name="tAmt" type="hidden">
+        <input value="{{book.price}}" name="amt" type="hidden">
+        <input value="0" name="txAmt" type="hidden">
+        <input value="0" name="psc" type="hidden">
+        <input value="0" name="pdc" type="hidden">
         <input value="epay_payment" name="scd" type="hidden">
         <input value="mybook31q231qq23" name="pid" type="hidden">
         <input value="http://127.0.0.1:8000/orders/esewa_payment_success/" type="hidden" name="su">
