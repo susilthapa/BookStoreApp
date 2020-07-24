@@ -1,13 +1,13 @@
 from .base import *
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = ['merobookstore.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Database
@@ -16,11 +16,11 @@ ALLOWED_HOSTS = ['merobookstore.herokuapp.com']
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),                      
-        'USER': config('D_USER'),
-        'PASSWORD': configt('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('PORT')
+        'NAME': os.environ.get('DB_NAME'),                      
+        'USER': os.environ.get('D_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('PORT')
     }
 }
 
