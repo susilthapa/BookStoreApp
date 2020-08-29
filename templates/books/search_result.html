@@ -4,7 +4,7 @@
   {% block content %}
     {% for book in books %}
       <div>
-        <img src="{{ book.cover.url }}" alt="">
+        <img src="{{ book.cover_url }}" alt="">
         <h2><a href="{{book.get_absolute_url}}">{{book.title}}</a></h2>
       </div>
     {% endfor %}

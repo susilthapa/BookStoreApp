@@ -7,8 +7,6 @@
 {% block content %}
   <div class="p-5 w-50 mx-auto">
     <h2 class="text-center">Login</h2>
-    <a class="btn btn-success" href="{% provider_login_url 'github' %}">Github</a>
-
     <form method="post" class="mt-2">
       {% csrf_token %}
       {{ form|crispy }}

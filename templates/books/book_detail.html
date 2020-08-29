@@ -7,7 +7,7 @@
     <div class="book-detail">
       {% if book.cover %}
       <div class="detail-image">
-        <img class="bookcover" src="{{ book.cover.url }}" alt="{{ book.title }}"></img>
+        <img class="bookcover" src="{{ book.cover_url }}" alt="{{ book.title }}"></img>
       </div>
       {% endif %}
       <h2><a href="">{{book.title}}</a></h2>

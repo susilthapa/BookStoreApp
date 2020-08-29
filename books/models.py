@@ -11,6 +11,7 @@ class Books(models.Model):
   author = models.CharField(max_length=200)
   price = models.DecimalField(max_digits=6, decimal_places=2)
   cover = models.ImageField(upload_to='covers/', blank=True)
+  cover_url = models.URLField(max_length=200, blank=True, null=True)
 
   class Meta:
     verbose_name_plural = "Books"
