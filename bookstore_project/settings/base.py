@@ -48,7 +48,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
-    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Whitenoise
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -57,9 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
-
 
 
 ROOT_URLCONF = 'bookstore_project.urls'
@@ -109,13 +106,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # django-allauth configurations
 LOGIN_REDIRECT_URL = 'home'

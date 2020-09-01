@@ -9,11 +9,21 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com']
 
-
+MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+]
 
 CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 604800 # Per site cache expiration date; here 7 days
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
+
+CACHES = {
+    'default':{
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'merobookstore_cache',
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
