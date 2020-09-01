@@ -10,6 +10,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['.herokuapp.com']
 
 
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 604800 # Per site cache expiration date; here 7 days
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
