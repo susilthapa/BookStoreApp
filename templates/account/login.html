@@ -7,6 +7,8 @@
 {% block content %}
   <div class="p-5 w-50 mx-auto">
     <h2 class="text-center">Login</h2>
+    <a class="btn btn-success mx-auto" href="{% provider_login_url 'google' %}">Google Login</a>
+    <!-- <a class="btn btn-success mx-auto" href="{% provider_login_url 'github' method='oauth2' %}">Github Login</a> -->
     <form method="post" class="mt-2">
       {% csrf_token %}
       {{ form|crispy }}
